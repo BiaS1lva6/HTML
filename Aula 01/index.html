@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biazinha</title>
+
+    <style>
+      body {
+        background: #ae096c;
+        color: #eca1ce;
+        text-shadow: 2px 2px 5px #000;
+      }
+
+      h1 {
+        color: rgb(231, 94, 174);
+        background: #3f3f3f;
+        text-align: center;
+      }
+      h3 {
+        color: rgb(224, 61, 167);
+        background: #3f3f3f;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Aula 01- HTML | CSS | JS</h1>
+
+    <h2>Alerta de mensagem!</h2>
+    <p style="text-align: center">
+      <button onclick="alerta()" style="">🚨Alerta🚨</button>
+    </p>
+
+    <h2>Altere a cor do fundo do site clicando em uma das cores abaixo;</h2>
+    <p style="text-align: center">
+      <button onclick="red()" style="background: red">Vermelho</button>
+      <button onclick="blue()" style="background: blue">Azul</button>
+      <button onclick="yellow()" style="background: yellow">Amarelo</button>
+    </p>
+
+    <h1>Documento da bia</h1>
+    <h3>biazinha</h3>
+  </body>
+  <script>
+    console.log("Olá Mundo");
+
+    function alerta() {
+      var nome = prompt("Olá, inforne seu nome:");
+      alert(`Olá ${nome}`);
+    }
+    function red() {
+      document.getElementsByTagName("body")[0].style.background = "red";
+    }
+    function blue() {
+      document.getElementsByTagName("body")[0].style.background = "blue";
+    }
+    function yellow() {
+      document.getElementsByTagName("body")[0].style.background = "yellow";
+    }
+  </script>
+</html>
+
+<!-- document.getElementsByTagName("h1")[0].style.color = "#f28600" -->
