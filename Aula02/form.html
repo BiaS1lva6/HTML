@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulário</title>
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
     <h1 class="textoCentro" action="">
-        <a href="index.html">Home</a>
-          <a href="https://www.google.com.br/" target="_blank">Google</a>
-          <a href="https://github.com/BiaS1lva6" target="_parent">Git-Hub</a>
-          <a href="https://twitter.com/" target="_self">Twitter</a>
-          <a href="https://instagram.com" target="_top">Instagram</a>
-      </h1>
+      <a href="index.html">Home</a>
+      <a href="https://www.google.com.br/" target="_blank">Google</a>
+      <a href="https://github.com/BiaS1lva6" target="_parent">Git-Hub</a>
+      <a href="https://twitter.com/" target="_self">Twitter</a>
+      <a href="https://instagram.com" target="_top">Instagram</a>
+    </h1>
 
-    <form class="textoCentro" action="">
-        <h3>Entre em contato</h3>
-        <p>Ficaremos felizes em atende-lo</p>
-        <p>
-        <input type="text" size="40" placeholder="Nome:" /> 
+    <form class="textoCentro" onsubmit="console.log(`Enviou`)">
+      <h3>Entre em contato</h3>
+      <p>Ficaremos felizes em atende-lo</p>
+      <p>
+        <input id="nome" type="text" size="40" placeholder="Nome:" required />
         <br />
-        <input type="email" size="40" placeholder="E-mail:" />
-        <br /> 
-        <textarea 
-         name=""
-         id=""
-         cols="40"
-         rows="10"
-         placeholder="Mensagem"
-         ></textarea>
-        </p>
-        <input type="submit" value="Enviar"/>
+        <input type="email" size="40" placeholder="E-mail:" required />
+        <br />
+        <textarea
+          name=""
+          id=""
+          cols="40"
+          rows="10"
+          placeholder="Mensagem"
+          minlength="10"
+          required
+        ></textarea>
+      </p>
+      <input type="button" onclick="enviar()" value="Enviar" />
     </form>
-</body>
+    <span id="resposta"></span>
+  </body>
+  <script src="./js/script.js"></script>
 </html>
