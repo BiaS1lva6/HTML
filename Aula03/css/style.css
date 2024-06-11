@@ -1,16 +1,152 @@
 /* faz aplicação global do CSS*/
 * {
- margin: 0;
- padding: 0;
- box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 /* Variaveis que podem ser usadas para todo o documento */
 /* Arquivo somente no dark mode */
-:root{
-    --bg-url: url(../img/backgroundDark.png)
+:root {
+  --bg-url: url(../img/backgroundDark.png); /*variavel que declaramos*/
 }
 
-body{
-    background: var(--bg-url) no-repeat top center / cover;
-    height: 100vh; /* vh = tamanho da tela */
+body {
+  background: var(--bg-url) no-repeat top center / cover;
+  height: 100vh; /* vh = tamanho da tela */
+  color: white;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif; /*fonte*/
+}
+
+#container {
+  width: 100%;
+  max-width: 588px;
+  margin: 56px auto 0px;
+  padding: 0px 24px;
+}
+
+#perfil {
+  display: flex; /*não funciona so com isso, o flex alinha*/
+  flex-direction: column;
+  align-items: center; /* itens no centro*/
+}
+
+#perfil img {
+  width: 112px; /*comprimento*/
+  height: 112px;
+  object-fit: cover; /* não fiz os "border" porque a minha imagem ja era redonda*/
+}
+
+#perfil p {
+  margin-top: 8px; /*margem no topo*/
+  font-weight: 500;
+  line-height: 24px;
+}
+
+#botao {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#botao button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 0; /* borda*/
+  background: white url(../img/MoonStars.svg) no-repeat center;
+
+  position: absolute; /*faz com que o item da tela fique solto*/
+  z-index: 1; /* camada um na frente do outro ou um em cima do outro*/
+  top: 50%;
+  transform: translateY(-50%);
+
+  animation: slide-out 0.2s; /*vai e volta do botão*/
+}
+
+#botao button:hover { /*passa o mouse em cima*/
+ outline: 8px solid rgba(255, 255, 255, 0.2);
+ transition: all 0.2s; /*velocidade no inicio da transição*/
+
+}
+
+#botao span {
+    background: rgba(255, 255, 255, 0.1);
+    display: block;
+    width: 54px;
+    height: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 24px;
+    backdrop-filter: blur(4px); 
+    -webkit-backdrop-filter: blur(4px);
+}
+
+#links ul{
+    list-style: none; /*none tira as bolinhas/marcações*/
+    display: flex; 
+    flex-direction: column;
+    gap: 16px; /*espaçamento enetre um e outro*/
+    padding: 24px; /*espaço interno*/
+}
+
+#links ul li a{ 
+    display: flex; /*solta os itens no meio*/
+    align-items: center;
+    justify-content: center; /*justifica o conteuda no centro*/
+    padding: 16px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px; /*arredonda*/
+    background: rgba(255, 255, 255, 0.1); /*fundo*/
+    text-decoration: none;
+    font-weight: bold; /*tamanho da fonte*/
+    color: #fff;
+}
+
+#links ul li a:hover {
+ background: rgba(255, 255, 255, 0.2);
+ border: 1px solid #fff;
+
+}
+
+#redeSocial{
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    gap: 16px;
+    font-size: 24px;
+}
+
+#redeSocial a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#footer{
+    text-align: center; /*para colocar no centro, que so funciona com textos*/
+    font-size: 14px;
+    padding: 24px;
+}
+
+#footer a {
+ text-decoration: none;
+ color: #fff;
+}
+
+/* animação do botão*/
+@keyframes slide-out {
+    from {
+        left: 50%;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+    to {
+        left: 50%
+    }
 }
