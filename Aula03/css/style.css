@@ -1,0 +1,16 @@
+/* faz aplicação global do CSS*/
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+/* Variaveis que podem ser usadas para todo o documento */
+/* Arquivo somente no dark mode */
+:root{
+    --bg-url: url(../img/backgroundDark.png)
+}
+
+body{
+    background: var(--bg-url) no-repeat top center / cover;
+    height: 100vh; /* vh = tamanho da tela */
+}
