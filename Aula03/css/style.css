@@ -5,15 +5,32 @@
   box-sizing: border-box;
 }
 /* Variaveis que podem ser usadas para todo o documento */
-/* Arquivo somente no dark mode */
+/* Arquivo somente no Dark mode */
 :root {
   --bg-url: url(../img/backgroundDark.png); /*variavel que declaramos*/
+  --text-color: #fff;
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(../img/MoonStars.svg);
+  --highlight-color: rgba(255, 255, 255, 0.3);
+}
+
+/*class para criar o modo light*/
+.light {
+  --bg-url: url(../img/backgroundWhite.png);
+  --text-color: #000;
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.1);
+  --surface-color-hover: rgba(0, 0, 0, 0.2);
+  --switch-bg-url: url(../img/Sun.svg);
+  --highlight-color: rgba(0, 0, 0, 0.3);
 }
 
 body {
   background: var(--bg-url) no-repeat top center / cover;
   height: 100vh; /* vh = tamanho da tela */
-  color: white;
+  color: var(--text-color); /*para os textos mudarem de cor conforme o tema q tiver*/
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif; /*fonte*/
 }
@@ -54,7 +71,7 @@ body {
   height: 32px;
   border-radius: 50%;
   border: 0; /* borda*/
-  background: white url(../img/MoonStars.svg) no-repeat center;
+  background: white var(--switch-bg-url) no-repeat center;
 
   position: absolute; /*faz com que o item da tela fique solto*/
   z-index: 1; /* camada um na frente do outro ou um em cima do outro*/
@@ -64,89 +81,93 @@ body {
   animation: slide-out 0.2s; /*vai e volta do botão*/
 }
 
-#botao button:hover { /*passa o mouse em cima*/
- outline: 8px solid rgba(255, 255, 255, 0.2);
- transition: all 0.2s; /*velocidade no inicio da transição*/
+.light #botao button{
+  animation: slide-in 0.2s forwards;
+}
 
+#botao button {
+  /*passa o mouse em cima*/
+  outline: 8px solid var(--surface-color-hover);
+  transition: all 0.2s; /*velocidade no inicio da transição*/
 }
 
 #botao span {
-    background: rgba(255, 255, 255, 0.1);
-    display: block;
-    width: 54px;
-    height: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 24px;
-    backdrop-filter: blur(4px); 
-    -webkit-backdrop-filter: blur(4px);
+  background: var(--surface-color);
+  display: block;
+  width: 54px;
+  height: 24px;
+  border: 1px solid var(--stroke-color);
+  border-radius: 24px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
-#links ul{
-    list-style: none; /*none tira as bolinhas/marcações*/
-    display: flex; 
-    flex-direction: column;
-    gap: 16px; /*espaçamento enetre um e outro*/
-    padding: 24px; /*espaço interno*/
+#links ul {
+  list-style: none; /*none tira as bolinhas/marcações*/
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /*espaçamento enetre um e outro*/
+  padding: 24px; /*espaço interno*/
 }
 
-#links ul li a{ 
-    display: flex; /*solta os itens no meio*/
-    align-items: center;
-    justify-content: center; /*justifica o conteuda no centro*/
-    padding: 16px 24px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 8px; /*arredonda*/
-    background: rgba(255, 255, 255, 0.1); /*fundo*/
-    text-decoration: none;
-    font-weight: bold; /*tamanho da fonte*/
-    color: #fff;
+#links ul li a {
+  display: flex; /*solta os itens no meio*/
+  align-items: center;
+  justify-content: center; /*justifica o conteuda no centro*/
+  padding: 16px 24px;
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px; /*arredonda*/
+  background: var(--surface-color); /*fundo*/
+  text-decoration: none;
+  font-weight: bold; /*tamanho da fonte*/
+  color: var(--text-color);
 }
 
 #links ul li a:hover {
- background: rgba(255, 255, 255, 0.2);
- border: 1px solid #fff;
-
+  background: var(--surface-color-hover);
+  border: 1px solid var(--text-color)
+  ;
 }
 
-#redeSocial{
-    display: flex;
-    justify-content: center;
-    padding: 24px;
-    gap: 16px;
-    font-size: 24px;
+#redeSocial {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+  gap: 16px;
+  font-size: 24px;
 }
 
 #redeSocial a {
-    text-decoration: none;
-    color: #fff;
+  text-decoration: none;
+  color: var(--text-color);
 }
 
-#footer{
-    text-align: center; /*para colocar no centro, que so funciona com textos*/
-    font-size: 14px;
-    padding: 24px;
+#footer {
+  text-align: center; /*para colocar no centro, que so funciona com textos*/
+  font-size: 14px;
+  padding: 24px;
 }
 
 #footer a {
- text-decoration: none;
- color: #fff;
+  text-decoration: none;
+  color: var(--text-color);
 }
 
 /* animação do botão*/
 @keyframes slide-out {
-    from {
-        left: 50%;
-    }
-    to {
-        left: 0;
-    }
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
 }
 
 @keyframes slide-in {
-    from {
-        left: 0;
-    }
-    to {
-        left: 50%
-    }
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
 }
