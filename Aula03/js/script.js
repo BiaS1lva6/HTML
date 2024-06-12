@@ -8,7 +8,10 @@ document.documentElement.classList.toggle("light")
 
 const isLight = document.documentElement.classList.contains("light");
 
-const imagem = isLight ? "./img/perfil.png" : "./img/perfil (2).png";
+const imagem = isLight ? "./img/fotodeperfil.jpeg" : "./img/perfil (2).png";
 
 document.querySelector("#perfil img").setAttribute("src", imagem)
+
+document.addEventListener.classList("perfil")
 };
+
