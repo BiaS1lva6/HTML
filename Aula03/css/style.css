@@ -8,9 +8,9 @@
 /* Arquivo somente no Dark mode */
 :root {
   --bg-url: url(../img/backgroundamigas.jpeg); /*variavel que declaramos*/
-  --text-color:  #000;
+  --text-color: #000;
   --surface-color: rgba(53, 53, 53, 0.5);
-  --surface-color-hover:   rgba(25, 18, 18, 0.188);
+  --surface-color-hover: rgba(25, 18, 18, 0.188);
   --switch-bg-url: url(../img/MoonStars.svg);
   --highlight-color: rgba(0, 0, 0, 0.3);
 }
@@ -28,7 +28,9 @@
 body {
   background: var(--bg-url) no-repeat top center / cover;
   height: 100vh; /* vh = tamanho da tela */
-  color: var(--text-color); /*para os textos mudarem de cor conforme o tema q tiver*/
+  color: var(
+    --text-color
+  ); /*para os textos mudarem de cor conforme o tema q tiver*/
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif; /*fonte*/
 }
@@ -49,18 +51,16 @@ body {
 #perfil img {
   width: 112px; /*comprimento*/
   height: 112px;
-  border-radius: 50%; 
-  border: 4px solid rgba(146, 146, 146, 0.8); 
+  border-radius: 50%;
+  border: 4px solid var(--stroke-color);
   object-fit: cover; /* não fiz os "border" porque a minha imagem ja era redonda*/
 }
-
 
 #perfil p {
   margin-top: 8px; /*margem no topo*/
   font-weight: 500;
   line-height: 24px;
 }
-
 
 #botao {
   position: relative;
@@ -73,7 +73,7 @@ body {
   height: 32px;
   border-radius: 50%;
   border: 0; /* borda*/
-  background: white var(--switch-bg-url) no-repeat center;
+  background: rgba(255, 255, 255, 0.974) var(--switch-bg-url) no-repeat center;
 
   position: absolute; /*faz com que o item da tela fique solto*/
   z-index: 1; /* camada um na frente do outro ou um em cima do outro*/
@@ -83,11 +83,11 @@ body {
   animation: slide-out 0.2s; /*vai e volta do botão*/
 }
 
-.light #botao button{
+.light #botao button {
   animation: slide-in 0.2s forwards;
 }
 
-#botao button {
+#botao button:hover {
   /*passa o mouse em cima*/
   outline: 8px solid var(--surface-color-hover);
   transition: all 0.2s; /*velocidade no inicio da transição*/
@@ -127,8 +127,7 @@ body {
 
 #links ul li a:hover {
   background: var(--surface-color-hover);
-  border: 1px solid var(--text-color)
-  ;
+  border: 1px solid var(--text-color);
 }
 
 #redeSocial {
